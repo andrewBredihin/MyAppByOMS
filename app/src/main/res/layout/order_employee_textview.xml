@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="employee"
+            type="com.bav.ordermanagementsystem.entity.Employee"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MyTextViewStyle"
+            android:text="@string/order_employee"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MySmallViewStyle"
+            android:text="@{employee.lastName + ' ' + employee.firstName}"/>
+    </LinearLayout>
+
+</layout>

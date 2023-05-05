@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_my_orders">
+
+    <fragment
+        android:id="@+id/nav_my_orders"
+        android:name="com.bav.ordermanagementsystem.ui.myOrders.MyOrdersFragment"
+        android:label="@string/my_orders"
+        tools:layout="@layout/fragment_my_orders" />
+
+    <fragment
+        android:id="@+id/nav_create_order"
+        android:name="com.bav.ordermanagementsystem.ui.createOrder.CreateOrderFragment"
+        android:label="@string/create_order"
+        tools:layout="@layout/fragment_create_order" />
+
+    <fragment
+        android:id="@+id/nav_select_orderItems"
+        android:name="com.bav.ordermanagementsystem.ui.createOrder.CreateOrderGetItemsFragment"
+        android:label="@string/order_items"
+        tools:layout="@layout/fragment_create_order_get_items" />
+
+    <fragment
+        android:id="@+id/nav_order_info_client"
+        android:name="com.bav.ordermanagementsystem.ui.orderInfo.client.OrderInfoClientFragment"
+        tools:layout="@layout/fragment_order_info_client"
+        android:label="@string/order_info"/>
+
+    <fragment
+        android:id="@+id/nav_user_info"
+        android:name="com.bav.ordermanagementsystem.ui.userPage.UserInfoFragment"
+        tools:layout="@layout/fragment_user_page"
+        android:label="@string/user_page"/>
+
+    <fragment
+        android:id="@+id/nav_client_edit"
+        android:name="com.bav.ordermanagementsystem.ui.userPage.edit.ClientEditFragment"
+        tools:layout="@layout/fragment_client_edit"
+        android:label="@string/user_edit"/>
+</navigation>

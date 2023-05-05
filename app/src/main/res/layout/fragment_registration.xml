@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editTextFirstNameRegistrationPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/registration_first_name"
+            style="@style/MyEditTextStyle"/>
+
+        <EditText
+            android:id="@+id/editTextLastNameRegistrationPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="24sp"
+            android:hint="@string/registration_last_name"
+            style="@style/MyEditTextStyle"/>
+
+        <EditText
+            android:id="@+id/editTextSecondNameRegistrationPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="24sp"
+            android:hint="@string/registration_second_name"
+            style="@style/MyEditTextStyle"/>
+
+        <EditText
+            android:id="@+id/editTextEmailRegistrationPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="24sp"
+            android:hint="@string/registration_mail"
+            style="@style/MyEditTextStyle"/>
+
+        <EditText
+            android:id="@+id/editTextPhoneRegistrationPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:textSize="24sp"
+            android:hint="@string/registration_phone"
+            style="@style/MyEditTextStyle"/>
+
+        <EditText
+            android:id="@+id/editTextLoginRegistrationPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="24sp"
+            android:hint="@string/registration_login"
+            style="@style/MyEditTextStyle"/>
+
+        <EditText
+            android:id="@+id/editTextPasswordRegistrationPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="24sp"
+            android:hint="@string/registration_password"
+            style="@style/MyEditTextStyle"/>
+
+        <EditText
+            android:id="@+id/editTextConfirmPasswordRegistrationPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="24sp"
+            android:hint="@string/registration_confirm_password"
+            style="@style/MyEditTextStyle"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

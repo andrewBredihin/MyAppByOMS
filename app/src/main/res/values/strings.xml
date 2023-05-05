@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">Order management system</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_edit">Редактировать</string>
+    <string name="action_save">Сохранить</string>
+    <string name="user_page">Информация о пользователе</string>
+
+    <string name="user_update">Информация о пользователе обновлена</string>
+    <string name="user_not_update">Ошибка, повторите попытку</string>
+
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="registration">Регистрация</string>
+    <string name="loginButtonText">Войти</string>
+    <string name="registrationButtonText">Регистрация</string>
+    <string name="errorLoginPage">Неверный логин или пароль</string>
+
+    <string name="registration_first_name">Имя</string>
+    <string name="registration_last_name">Фамилия</string>
+    <string name="registration_second_name">Отчество</string>
+    <string name="registration_mail">Почта</string>
+    <string name="registration_phone">Телефон (без первой цифры) </string>
+    <string name="registration_login">Логин</string>
+    <string name="registration_password">Пароль</string>
+    <string name="registration_confirm_password">Подтвердить пароль</string>
+
+    <string name="continue_str">Продолжить</string>
+    <string name="price">Цена: </string>
+    <string name="ruble">Руб</string>
+
+    <string name="create_orderItem_button">Создать</string>
+    <string name="create_orderItem">Создание OrderItem</string>
+    <string name="manager_page">Страница работников</string>
+    <string name="create_orderItem_error">Ошибка при создании OrderItem</string>
+    <string name="create_new_employee">Регистрация работника</string>
+    <string name="edit_employee">Редактирование работника</string>
+    <string name="employee_info">Информация о работнике</string>
+    <string name="user_edit">Редактирование пользователя</string>
+
+    <string name="errorFirstNameRegistrationPage">Имя не должно быть короче 1 символа</string>
+    <string name="errorLastNameRegistrationPage">Фамилия не должна быть короче 1 символа</string>
+    <string name="errorSecondNameRegistrationPage">Отчество не должно быть короче 1 символа</string>
+    <string name="errorMailRegistrationPage">Неверный формат email</string>
+    <string name="errorLoginRegistrationPage">Логин не должен быть короче 6 символов</string>
+    <string name="errorPasswordRegistrationPage">Пароль не должен быть короче 6 символов</string>
+    <string name="errorPhoneRegistrationPage">Неверный формат номера телефона</string>
+    <string name="errorPasswordConfirmRegistrationPage">Пароли не совпадают</string>
+    <string name="errorSaveRegistrationPage">Ошибка при сохранении пользователя, поворите попытку</string>
+    <string name="errorLoginAlreadyUsingRegistrationPage">Введенный логин уже используется</string>
+    <string name="savedSuccessfullyRegistrationPage">Пользователь зарегистрирован</string>
+
+    <string name="createOrderButton">Создать заказ</string>
+    <string name="address">Адрес</string>
+    <string name="date">Дата завершения</string>
+    <string name="title">Название</string>
+    <string name="status">Статус</string>
+    <string name="order_employee">Заказ принял</string>
+    <string name="orderCreated">Заказ создан</string>
+    <string name="orderCanceled">Заказ отменен</string>
+    <string name="orderToCanceled">Отменить заказ</string>
+    <string name="orderStartActive">Заказ принят</string>
+    <string name="orderAlreadyActive">Заказ был принят другим человеком</string>
+    <string name="orderToActive">Принять заказ</string>
+    <string name="orderComplete">Заказ выполнен</string>
+    <string name="orderNotCreated">Ошибка при создании заказа</string>
+    <string name="orderItemWasNotSelected">Услуга не выбрана</string>
+    <string name="errorCreateOrderTitle">Название не должно быть короче 10 символов</string>
+    <string name="errorCreateOrderAddress">Адрес не должен быть короче 10 символов</string>
+
+    <string name="active_orders">Активные заказы</string>
+    <string name="pending_orders">Доступные заказы</string>
+    <string name="complete_orders">Завершенные заказы</string>
+    <string name="create_order">Создание заказа</string>
+    <string name="my_orders">Мои заказы</string>
+    <string name="order_info">Информация о заказе</string>
+    <string name="order_items">Услуги</string>
+
+    <string name="orderInExecution">Невозможно отменить: заказ выполняется</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="logout">Выйти</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_active_orders">
+
+    <fragment
+        android:id="@+id/nav_active_orders"
+        android:name="com.bav.ordermanagementsystem.ui.activeOrders.ActiveOrdersFragment"
+        android:label="@string/active_orders"
+        tools:layout="@layout/fragment_active_orders_main" />
+
+    <fragment
+        android:id="@+id/nav_pending_orders"
+        android:name="com.bav.ordermanagementsystem.ui.pendingOrders.PendingOrdersFragment"
+        android:label="@string/pending_orders"
+        tools:layout="@layout/fragment_pending_orders" />
+
+    <fragment
+        android:id="@+id/nav_order_info_employee"
+        android:name="com.bav.ordermanagementsystem.ui.orderInfo.employee.OrderInfoEmployeeFragment"
+        android:label="@string/order_info"
+        tools:layout="@layout/fragment_order_info_employee" />
+
+    <fragment
+        android:id="@+id/nav_user_info"
+        android:name="com.bav.ordermanagementsystem.ui.userPage.UserInfoFragment"
+        tools:layout="@layout/fragment_user_page"
+        android:label="@string/user_page"/>
+
+    <fragment
+        android:id="@+id/nav_employee_edit"
+        android:name="com.bav.ordermanagementsystem.ui.userPage.edit.EmployeeEditFragment"
+        tools:layout="@layout/fragment_employee_edit"
+        android:label="@string/user_edit"/>
+
+</navigation>

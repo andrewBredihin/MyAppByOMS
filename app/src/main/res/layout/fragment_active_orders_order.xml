@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/activeOrdersOrderButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/activeOrdersOrderBack"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck"
+        style="@style/MyLeftButtonStyle"/>
+
+    <ImageButton
+        android:id="@+id/activeOrdersOrderBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/activeOrdersOrderComplete"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_back_foreground"
+        android:background="@android:color/transparent"
+        tools:ignore="SpeakableTextPresentCheck"
+        style="@style/MyButtonStyle"/>
+
+    <ImageButton
+        android:id="@+id/activeOrdersOrderComplete"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_finish_foreground"
+        android:background="@android:color/transparent"
+        tools:ignore="SpeakableTextPresentCheck"
+        style="@style/MyButtonStyle"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
