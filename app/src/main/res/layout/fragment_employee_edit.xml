@@ -5,7 +5,7 @@
     <data>
         <variable
             name="employee"
-            type="com.bav.ordermanagementsystem.entity.Employee"/>
+            type="com.bav.myapp.entity.Employee"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

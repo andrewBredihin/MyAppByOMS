@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/orderItem_fields"
-        android:name="com.bav.ordermanagementsystem.ui.createOrderItem.OrderItemFieldsFragment"
+        android:name="com.bav.myapp.ui.createOrderItem.OrderItemFieldsFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         tools:layout="@layout/fragment_order_item_fields"

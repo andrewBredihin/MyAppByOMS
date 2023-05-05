@@ -5,7 +5,7 @@
     <data>
         <variable
             name="items"
-            type="com.bav.ordermanagementsystem.entity.OrderItem"/>
+            type="com.bav.myapp.entity.OrderItem"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="client"
-            type="com.bav.ordermanagementsystem.entity.Client"/>
+            type="com.bav.myapp.entity.Client"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
