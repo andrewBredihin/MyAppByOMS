@@ -5,10 +5,12 @@ import androidx.room.RoomDatabase;
 
 import com.bav.myapp.dao.ClientDao;
 import com.bav.myapp.dao.EmployeeDao;
+import com.bav.myapp.dao.MyServiceDao;
 import com.bav.myapp.dao.OrderAndOrderItemsDao;
 import com.bav.myapp.dao.OrderDao;
 import com.bav.myapp.entity.Client;
 import com.bav.myapp.entity.Employee;
+import com.bav.myapp.entity.MyService;
 import com.bav.myapp.entity.Order;
 import com.bav.myapp.entity.OrderAndOrderItems;
 
@@ -16,11 +18,13 @@ import com.bav.myapp.entity.OrderAndOrderItems;
         Employee.class,
         Client.class,
         Order.class,
-        OrderAndOrderItems.class
+        OrderAndOrderItems.class,
+        MyService.class
 }, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract EmployeeDao employeeDao();
     public abstract ClientDao clientDao();
     public abstract OrderDao orderDao();
     public abstract OrderAndOrderItemsDao orderAndOrderItemsDao();
+    public abstract MyServiceDao myServiceDao();
 }

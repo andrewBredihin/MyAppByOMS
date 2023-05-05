@@ -15,8 +15,18 @@ import androidx.navigation.Navigation;
 import com.bav.myapp.R;
 import com.bav.myapp.databinding.FragmentCreateOrderItemBinding;
 import com.bav.myapp.db.DatabaseClient;
+import com.bav.myapp.entity.MyService;
+import com.bav.myapp.entity.OrderAndOrderItems;
 import com.bav.myapp.entity.OrderItem;
 import com.bav.myapp.service.UserService;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableCompletableObserver;
+import io.reactivex.schedulers.Schedulers;
 
 public class CreateOrderItemFragment extends Fragment {
 
@@ -35,13 +45,22 @@ public class CreateOrderItemFragment extends Fragment {
 
         binding.buttonCreateOrderItem.setOnClickListener(v -> {
             OrderItemFieldsFragment fragment = (OrderItemFieldsFragment) getChildFragmentManager().findFragmentById(R.id.orderItem_fields);
-            OrderItem item = fragment.getOrderItem();
+            MyService item = (MyService) fragment.getOrderItem();
             if (item != null){
-                //Прописать сохранение в БД
+                Completable.fromAction(() -> DatabaseClient.getInstance(getContext()).getAppDatabase().myServiceDao().insert(item))
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new DisposableCompletableObserver() {
+                            @Override
+                            public void onComplete() {
+                                Navigation.findNavController(root).navigate(R.id.nav_employees_page);
+                            }
 
-                Navigation.findNavController(root).navigate(R.id.nav_employees_page);
-            } else{
-                Toast.makeText(getContext(), R.string.create_orderItem_error, Toast.LENGTH_SHORT).show();
+                            @Override
+                            public void onError(Throwable e) {
+                                Toast.makeText(getContext(), R.string.create_orderItem_error, Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
 

@@ -16,13 +16,11 @@ public class OrderItemFieldsFragment extends Fragment {
 
     private FragmentOrderItemFieldsBinding binding;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentOrderItemFieldsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
 
         return root;
     }

@@ -15,13 +15,13 @@ import io.reactivex.Flowable;
 @Dao
 public interface OrderAndOrderItemsDao {
 
-    @Query("SELECT * FROM `order`")
+    @Query("SELECT * FROM `order_and_order_items`")
     Flowable<List<OrderAndOrderItems>> getAll();
 
     @Query("SELECT * FROM `order_and_order_items` WHERE order_id = :orderId")
     Flowable<List<OrderAndOrderItems>> getByOrderId(Long orderId);
 
-    @Query("SELECT * FROM `order` WHERE id = :id")
+    @Query("SELECT * FROM `order_and_order_items` WHERE id = :id")
     Flowable<OrderAndOrderItems> getById(Long id);
 
     @Query("DELETE FROM `order_and_order_items` WHERE order_id = :orderId")
