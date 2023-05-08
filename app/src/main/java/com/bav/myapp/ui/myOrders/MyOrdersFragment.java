@@ -3,6 +3,7 @@ package com.bav.myapp.ui.myOrders;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.bav.myapp.R;
 import com.bav.myapp.adapter.myOrders.MyOrdersAdapter;
 import com.bav.myapp.databinding.FragmentMyOrdersBinding;
 import com.bav.myapp.db.DatabaseClient;
+import com.bav.myapp.entity.OrderAndOrderItems;
 import com.bav.myapp.entity.OrderStatus;
 import com.bav.myapp.service.UserService;
 

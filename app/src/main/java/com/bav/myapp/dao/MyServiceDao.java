@@ -15,11 +15,16 @@ import io.reactivex.Flowable;
 @Dao
 public interface MyServiceDao {
 
-    @Query("SELECT * FROM MyService")
+    @Query("SELECT * FROM myservice")
     Flowable<List<MyService>> getAll();
 
-    @Query("SELECT * FROM MyService WHERE id = :serviceId")
+    @Query("SELECT * FROM myservice WHERE id = :serviceId")
     Flowable<List<MyService>> getById(Long serviceId);
+
+    @Query("SELECT a.* FROM myservice AS a " +
+            "INNER JOIN order_and_order_items AS b ON a.id = b.order_item_id " +
+            "WHERE b.order_id = :orderId")
+    Flowable<List<MyService>> getByOrderId(Long orderId);
 
     @Insert
     void insert(MyService order);

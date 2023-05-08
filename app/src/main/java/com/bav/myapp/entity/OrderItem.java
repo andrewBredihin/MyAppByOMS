@@ -1,12 +1,12 @@
 package com.bav.myapp.entity;
 
-import java.io.Serializable;
-
-public interface OrderItem extends Serializable {
+public interface OrderItem{
 
     double getPrice();
 
     Long getId();
 
     String getTitle();
+
+    String getDescription();
 }

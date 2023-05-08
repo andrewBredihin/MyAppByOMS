@@ -16,13 +16,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.bav.myapp.R;
+import com.bav.myapp.adapter.orderItems.info.OrderItemsInfoAdapter;
 import com.bav.myapp.databinding.FragmentOrderInfoEmployeeBinding;
 import com.bav.myapp.databinding.OrderInfoActiveBinding;
 import com.bav.myapp.databinding.OrderInfoPendingBinding;
 import com.bav.myapp.db.DatabaseClient;
+import com.bav.myapp.entity.OrderItem;
 import com.bav.myapp.entity.OrderStatus;
 import com.bav.myapp.service.UserService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import io.reactivex.Completable;
@@ -138,6 +142,15 @@ public class OrderInfoEmployeeFragment extends Fragment {
         /*List<OrderItem> items;
         OrderItemsInfoAdapter adapter = new OrderItemsInfoAdapter(getContext(), items, R.layout.order_item_info_fragment);
         binding.orderItemsList.setAdapter(adapter);*/
+
+        DatabaseClient.getInstance(context).getAppDatabase().myServiceDao().getByOrderId(getArguments().getLong("orderId"))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(items -> {
+                    List<OrderItem> list = new ArrayList<>();
+                    list.addAll(items);
+                    OrderItemsInfoAdapter adapter = new OrderItemsInfoAdapter(getContext(), list, R.layout.order_item_info_fragment);
+                    binding.orderItemsList.setAdapter(adapter);
+                });
 
         return root;
     }

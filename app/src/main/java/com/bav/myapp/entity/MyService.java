@@ -3,6 +3,8 @@ package com.bav.myapp.entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Objects;
+
 @Entity
 public class MyService implements OrderItem{
 
@@ -24,18 +26,41 @@ public class MyService implements OrderItem{
     }
 
     @Override
+    public String toString() {
+        return "MyService{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyService myService = (MyService) o;
+        return Objects.equals(id, myService.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
     public double getPrice() {
-        return 0;
+        return price;
     }
 
     @Override
     public Long getId() {
-        return null;
+        return id;
     }
 
     @Override
     public String getTitle() {
-        return null;
+        return title;
     }
 
     public void setId(Long id) {

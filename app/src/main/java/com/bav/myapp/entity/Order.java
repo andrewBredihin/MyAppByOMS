@@ -44,6 +44,10 @@ public class Order {
         this.title = title;
     }
 
+    public String getPriceStr(){
+        return String.valueOf(price);
+    }
+
     public Long getId() {
         return id;
     }

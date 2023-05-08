@@ -80,6 +80,15 @@
     <string name="order_info">Информация о заказе</string>
     <string name="order_items">Услуги</string>
 
+    <string name="order_item_title">Название</string>
+    <string name="order_item_description">Описание</string>
+    <string name="order_item_price">Цена</string>
+    <string name="error_order_item_title">Введите название</string>
+    <string name="error_order_item_description">Описание не должно быть короче 10 символов</string>
+    <string name="error_order_item_price">Введите цену</string>
+
+    <string name="error_get_order_items">Выберите услугу</string>
+
     <string name="orderInExecution">Невозможно отменить: заказ выполняется</string>
 
     <string name="menu_home">Home</string>

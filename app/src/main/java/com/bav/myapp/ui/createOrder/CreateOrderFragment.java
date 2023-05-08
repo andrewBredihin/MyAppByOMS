@@ -1,5 +1,6 @@
 package com.bav.myapp.ui.createOrder;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.bav.myapp.entity.OrderItem;
 import com.bav.myapp.entity.OrderStatus;
 import com.bav.myapp.service.UserService;
 
+import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ import java.util.Locale;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableCompletableObserver;
+import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class CreateOrderFragment extends Fragment {
@@ -41,6 +44,7 @@ public class CreateOrderFragment extends Fragment {
     private FragmentCreateOrderBinding binding;
     private UserService userService;
     private OrderItemsStore store;
+    private DatabaseClient databaseClient;
 
     private EditText title, address;
     private Button createOrder;
@@ -54,16 +58,18 @@ public class CreateOrderFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentCreateOrderBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        Context context = getContext();
 
-        store = OrderItemsStore.getInstance(getContext());
-        userService = UserService.getInstance(getContext());
+        store = OrderItemsStore.getInstance(context);
+        userService = UserService.getInstance(context);
+        databaseClient = DatabaseClient.getInstance(context);
 
         title = binding.title;
         address = binding.address;
 
         List<OrderItem> items = store.getItems();
         store = null;
-        OrderItemsInfoAdapter adapter = new OrderItemsInfoAdapter(getContext(), items, R.layout.order_item_info_fragment);
+        OrderItemsInfoAdapter adapter = new OrderItemsInfoAdapter(context, items, R.layout.order_item_info_fragment);
         binding.orderItemsList.setAdapter(adapter);
         for (OrderItem x : items){
             price += x.getPrice();
@@ -73,11 +79,11 @@ public class CreateOrderFragment extends Fragment {
         createOrder = binding.buttonCreateOrder;
         createOrder.setOnClickListener(v -> {
             if (title.getText().toString().length() < 10){
-                Toast.makeText(getContext(), R.string.errorCreateOrderTitle, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.errorCreateOrderTitle, Toast.LENGTH_SHORT).show();
                 return;
             }
             else if (address.getText().toString().length() < 10){
-                Toast.makeText(getContext(), R.string.errorCreateOrderAddress, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.errorCreateOrderAddress, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -94,41 +100,54 @@ public class CreateOrderFragment extends Fragment {
             order.setItems(items);
             order.setStatus(OrderStatus.PENDING);
 
-            Completable.fromAction(() -> DatabaseClient.getInstance(getContext()).getAppDatabase().orderDao().insert(order))
+            Completable.fromAction(() -> databaseClient.getAppDatabase().orderDao().insert(order))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new DisposableCompletableObserver() {
                         @Override
                         public void onComplete() {
-                            List<OrderAndOrderItems> orderAndOrderItems = new ArrayList<>(order.getItems().size());
-                            for (OrderItem x : order.getItems()){
-                                orderAndOrderItems.add(new OrderAndOrderItems(order.getId(), x.getId()));
-                            }
-
-                            Completable.fromAction(() -> DatabaseClient.getInstance(getContext()).getAppDatabase().orderAndOrderItemsDao().insertAll(orderAndOrderItems))
+                            databaseClient.getAppDatabase().orderDao().getMaxId()
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
-                                    .subscribe(new DisposableCompletableObserver() {
+                                    .subscribe(new DisposableSingleObserver<Long>() {
                                         @Override
-                                        public void onComplete() {
-                                            Toast.makeText(getContext(), R.string.orderCreated, Toast.LENGTH_SHORT).show();
-                                            Navigation.findNavController(container).navigate(R.id.nav_my_orders);
-                                        }
+                                        public void onSuccess(Long id) {
+                                            List<OrderAndOrderItems> orderAndOrderItems = new ArrayList<>(order.getItems().size());
+                                            for (OrderItem x : order.getItems()){
+                                                orderAndOrderItems.add(new OrderAndOrderItems(id, x.getId()));
+                                            }
 
-                                        @Override
-                                        public void onError(Throwable e) {
-                                            Completable.fromAction(() -> DatabaseClient.getInstance(getContext()).getAppDatabase().orderDao().delete(order))
+                                            Completable.fromAction(() -> databaseClient.getAppDatabase().orderAndOrderItemsDao().insertAll(orderAndOrderItems))
                                                     .subscribeOn(Schedulers.io())
                                                     .observeOn(AndroidSchedulers.mainThread())
                                                     .subscribe(new DisposableCompletableObserver() {
                                                         @Override
-                                                        public void onComplete() { }
+                                                        public void onComplete() {
+                                                            Toast.makeText(getContext(), R.string.orderCreated, Toast.LENGTH_SHORT).show();
+                                                            Navigation.findNavController(container).navigate(R.id.nav_my_orders);
+                                                        }
 
                                                         @Override
-                                                        public void onError(Throwable e) { }
-                                                    });
+                                                        public void onError(Throwable e) {
+                                                            Completable.fromAction(() -> databaseClient.getAppDatabase().orderDao().delete(order))
+                                                                    .subscribeOn(Schedulers.io())
+                                                                    .observeOn(AndroidSchedulers.mainThread())
+                                                                    .subscribe(new DisposableCompletableObserver() {
+                                                                        @Override
+                                                                        public void onComplete() { }
 
-                                            Toast.makeText(getContext(), R.string.orderNotCreated, Toast.LENGTH_LONG).show();
+                                                                        @Override
+                                                                        public void onError(Throwable e) { }
+                                                                    });
+
+                                                            Toast.makeText(getContext(), R.string.orderNotCreated, Toast.LENGTH_LONG).show();
+                                                        }
+                                                    });
+                                        }
+
+                                        @Override
+                                        public void onError(Throwable e) {
+
                                         }
                                     });
                         }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bav.myapp.entity.MyService;
 import com.bav.myapp.entity.OrderItem;
 
 import java.util.List;

@@ -27,6 +27,15 @@ public class OrderAndOrderItems {
         this.order_item_id = orderItemId;
     }
 
+    @Override
+    public String toString() {
+        return "OrderAndOrderItems{" +
+                "id=" + id +
+                ", order_id=" + order_id +
+                ", order_item_id=" + order_item_id +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }

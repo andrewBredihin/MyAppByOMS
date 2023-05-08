@@ -6,12 +6,33 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/orderItemTitle"
+        android:id="@+id/item_title"
+        style="@style/MyTextViewStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        style="@style/MyTextViewStyle"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="@string/order_item_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/order_item_description"
+        style="@style/MySmallViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_title" />
+
+    <TextView
+        android:id="@+id/item_price"
+        style="@style/MySmallViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/order_item_price"
+        android:textAlignment="viewEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

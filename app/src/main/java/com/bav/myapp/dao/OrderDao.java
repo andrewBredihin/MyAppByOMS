@@ -11,6 +11,7 @@ import com.bav.myapp.entity.Order;
 import java.util.List;
 
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 @Dao
 public interface OrderDao {
@@ -36,6 +37,8 @@ public interface OrderDao {
     @Query("SELECT * FROM `order` WHERE employee_id = :employeeId AND status = :status")
     Flowable<List<Order>> getByEmployeeIdAndStatusId(Long employeeId, String status);
 
+    @Query("SELECT max(id) FROM `order`")
+    Single<Long> getMaxId();
 
     @Insert
     void insert(Order order);

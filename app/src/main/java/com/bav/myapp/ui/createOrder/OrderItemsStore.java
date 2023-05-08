@@ -9,9 +9,9 @@ import java.util.List;
 
 public class OrderItemsStore {
 
-    private Context mCtx;
+    private final Context mCtx;
     private static OrderItemsStore mInstance;
-    private List<OrderItem> items;
+    private final List<OrderItem> items;
 
     private OrderItemsStore(Context mCtx) {
         this.mCtx = mCtx;
@@ -29,7 +29,19 @@ public class OrderItemsStore {
         return items;
     }
 
+    public int getSize(){
+        return items.size();
+    }
+
     public void addItem(OrderItem item) {
         items.add(item);
+    }
+
+    public void deleteItem(OrderItem item){
+        items.remove(item);
+    }
+
+    public boolean checkItem(OrderItem item){
+        return items.contains(item);
     }
 }

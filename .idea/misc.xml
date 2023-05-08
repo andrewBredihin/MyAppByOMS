@@ -60,6 +60,13 @@
         <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/App/app/src/main/res/menu/main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/App/app/src/main/res/mipmap-anydpi-v26/ic_delete_image.xml" value="0.16458333333333333" />
         <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/App/app/src/main/res/mipmap-anydpi-v26/ic_delete_image_round.xml" value="0.16458333333333333" />
+        <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/new app/MyApp/app/src/main/res/layout/fragment_create_order_get_items.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/new app/MyApp/app/src/main/res/layout/fragment_order_info_client.xml" value="0.2" />
+        <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/new app/MyApp/app/src/main/res/layout/fragment_order_info_employee.xml" value="0.2128623188405797" />
+        <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/new app/MyApp/app/src/main/res/layout/fragment_order_item_fields.xml" value="0.2" />
+        <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/new app/MyApp/app/src/main/res/layout/fragment_registration.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/new app/MyApp/app/src/main/res/layout/order_item_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/wotwa/Desktop/Programms/Diplom/new app/MyApp/app/src/main/res/layout/order_item_info_fragment.xml" value="0.2128623188405797" />
       </map>
     </option>
   </component>
