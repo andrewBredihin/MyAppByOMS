@@ -34,9 +34,9 @@
     <string name="ruble">Руб</string>
 
     <string name="create_orderItem_button">Создать</string>
-    <string name="create_orderItem">Создание OrderItem</string>
+    <string name="create_orderItem">Создание услуги</string>
     <string name="manager_page">Страница работников</string>
-    <string name="create_orderItem_error">Ошибка при создании OrderItem</string>
+    <string name="create_orderItem_error">Ошибка при создании услуги</string>
     <string name="create_new_employee">Регистрация работника</string>
     <string name="edit_employee">Редактирование работника</string>
     <string name="employee_info">Информация о работнике</string>
@@ -69,7 +69,7 @@
     <string name="orderComplete">Заказ выполнен</string>
     <string name="orderNotCreated">Ошибка при создании заказа</string>
     <string name="orderItemWasNotSelected">Услуга не выбрана</string>
-    <string name="errorCreateOrderTitle">Название не должно быть короче 10 символов</string>
+    <string name="errorCreateOrderTitle">Название не должно быть короче 5 символов</string>
     <string name="errorCreateOrderAddress">Адрес не должен быть короче 10 символов</string>
 
     <string name="active_orders">Активные заказы</string>
@@ -96,4 +96,7 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="logout">Выйти</string>
+    <string name="price_">Цена</string>
+    <string name="client">Клиент</string>
+    <string name="phone">Телефон</string>
 </resources>

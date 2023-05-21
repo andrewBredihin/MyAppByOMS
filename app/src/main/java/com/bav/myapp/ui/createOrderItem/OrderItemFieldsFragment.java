@@ -48,7 +48,7 @@ public class OrderItemFieldsFragment extends Fragment {
         }
 
         MyService item = new MyService();
-        item.setTitle(title.getText().toString());
+        item.setTitle(title.getText().toString().trim());
         item.setDescription(description.getText().toString());
         item.setPrice(Double.parseDouble(price.getText().toString()));
 

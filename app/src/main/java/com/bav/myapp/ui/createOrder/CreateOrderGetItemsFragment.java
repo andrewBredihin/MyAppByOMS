@@ -28,7 +28,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 
 public class CreateOrderGetItemsFragment extends Fragment {
 
-    private List<OrderItem> items;
     private Button continueBtn;
 
     private FragmentCreateOrderGetItemsBinding binding;
@@ -49,7 +48,9 @@ public class CreateOrderGetItemsFragment extends Fragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(items -> {
                     List<OrderItem> list = new ArrayList<>(items);
-                    OrderItemsAdapter adapter = new OrderItemsAdapter(getContext(), list, R.layout.order_item_fragment);
+                    OrderItemsAdapter adapter = new OrderItemsAdapter(getContext(),
+                            list,
+                            R.layout.order_item_fragment);
                     binding.orderItemsList.setAdapter(adapter);
                 });
 

@@ -53,7 +53,6 @@ public class CreateOrderItemFragment extends Fragment {
                         .subscribe(new DisposableCompletableObserver() {
                             @Override
                             public void onComplete() {
-                                Toast.makeText(getContext(), item.toString(), Toast.LENGTH_LONG).show();
                                 Navigation.findNavController(root).navigate(R.id.nav_employees_page);
                             }
 

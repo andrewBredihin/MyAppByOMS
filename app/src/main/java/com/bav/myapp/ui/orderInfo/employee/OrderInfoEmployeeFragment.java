@@ -21,6 +21,7 @@ import com.bav.myapp.databinding.FragmentOrderInfoEmployeeBinding;
 import com.bav.myapp.databinding.OrderInfoActiveBinding;
 import com.bav.myapp.databinding.OrderInfoPendingBinding;
 import com.bav.myapp.db.DatabaseClient;
+import com.bav.myapp.entity.Client;
 import com.bav.myapp.entity.OrderItem;
 import com.bav.myapp.entity.OrderStatus;
 import com.bav.myapp.service.UserService;
@@ -32,6 +33,7 @@ import java.util.Objects;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableCompletableObserver;
+import io.reactivex.observers.DisposableMaybeObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class OrderInfoEmployeeFragment extends Fragment {
@@ -54,6 +56,27 @@ public class OrderInfoEmployeeFragment extends Fragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(order -> {
                     binding.setOrder(order);
+
+                    databaseClient.getAppDatabase().clientDao().getById(order.getClient_id())
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(new DisposableMaybeObserver<Client>() {
+                                @Override
+                                public void onSuccess(Client client) {
+                                    binding.orderInfoClient.setText(client.getFullName());
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+
+                                }
+
+                                @Override
+                                public void onComplete() {
+
+                                }
+                            });
+
                     if (Objects.equals(order.getEmployee_id(), userService.getUserDetails().getValue().getId())){
                         binding.orderInfoOrderActive.setOnInflateListener(new ViewStub.OnInflateListener() {
                             @Override

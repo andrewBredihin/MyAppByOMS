@@ -11,18 +11,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/list_background"
+        style="@style/LayoutsMargin">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/MyTextViewStyle"
+            style="@style/MyBigTextViewStyle"
             android:text="@string/order_employee"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/MySmallViewStyle"
+            style="@style/MyTextViewStyle"
             android:text="@{employee.lastName + ' ' + employee.firstName}"/>
     </LinearLayout>
 

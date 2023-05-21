@@ -14,7 +14,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck"
-        style="@style/MyLeftButtonStyle"/>
+        style="@style/MyLeftButtonStyle"
+        android:background="@drawable/button_background"/>
 
     <ImageButton
         android:id="@+id/pendingOrderToActive"

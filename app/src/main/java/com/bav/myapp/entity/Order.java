@@ -48,6 +48,10 @@ public class Order {
         return String.valueOf(price);
     }
 
+    public String getPriceString(){
+        return price + " " + "Руб";
+    }
+
     public Long getId() {
         return id;
     }

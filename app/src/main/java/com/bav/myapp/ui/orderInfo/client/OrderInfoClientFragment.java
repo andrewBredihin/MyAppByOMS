@@ -115,12 +115,15 @@ public class OrderInfoClientFragment extends Fragment {
         OrderItemsInfoAdapter adapter = new OrderItemsInfoAdapter(getContext(), items, R.layout.order_item_info_fragment);
         binding.orderItemsList.setAdapter(adapter);*/
 
-        DatabaseClient.getInstance(context).getAppDatabase().myServiceDao().getByOrderId(getArguments().getLong("orderId"))
+        DatabaseClient.getInstance(context).getAppDatabase().myServiceDao()
+                .getByOrderId(getArguments().getLong("orderId"))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(items -> {
                     List<OrderItem> list = new ArrayList<>();
                     list.addAll(items);
-                    OrderItemsInfoAdapter adapter = new OrderItemsInfoAdapter(getContext(), list, R.layout.order_item_info_fragment);
+                    OrderItemsInfoAdapter adapter = new OrderItemsInfoAdapter(getContext(),
+                            list,
+                            R.layout.order_item_info_fragment);
                     binding.orderItemsList.setAdapter(adapter);
                 });
 
